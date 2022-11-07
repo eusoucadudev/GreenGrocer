@@ -15,23 +15,23 @@ class CartRepository {
       url: EndPoints.getCartItems,
       method: HttpMethods.post,
       headers: {
-        "X-Parse-Session-Token": token,
+        'X-Parse-Session-Token': token,
       },
       body: {
-        "user": userId,
+        'user': userId,
       },
     );
 
-    if (result["result"] != null) {
+    if (result['result'] != null) {
       List<CartItemModel> data =
-          List<Map<String, dynamic>>.from(result["result"])
+          List<Map<String, dynamic>>.from(result['result'])
               .map(CartItemModel.fromJson)
               .toList();
 
       return CartResult<List<CartItemModel>>.success(data);
     } else {
       return CartResult.error(
-          "Ocorreu um erro ao recuperar os itens do carrinho");
+          'Ocorreu um erro ao recuperar os itens do carrinho');
     }
   }
 
@@ -43,35 +43,36 @@ class CartRepository {
       url: EndPoints.checkout,
       method: HttpMethods.post,
       body: {
-        "total": total,
+        'total': total,
       },
       headers: {
-        "X-Parse-Session-Token": token,
+        'X-Parse-Session-Token': token,
       },
     );
 
-    if (result["result"] != null) {
-      final order = OrderModel.fromJson(result["result"]);
+    if (result['result'] != null) {
+      final order = OrderModel.fromJson(result['result']);
+
       return CartResult<OrderModel>.success(order);
     } else {
-      return CartResult.error("Não foi possível realizar o pedido");
+      return CartResult.error('Não possível realizar o pedido');
     }
   }
 
   Future<bool> changeItemQuantity({
-    required int quantity,
-    required String cartItemId,
     required String token,
+    required String cartItemId,
+    required int quantity,
   }) async {
     final result = await _httpManager.restRequest(
       url: EndPoints.changeItemQuantity,
       method: HttpMethods.post,
       body: {
-        "cartItemId": cartItemId,
-        "quantity": quantity,
+        'cartItemId': cartItemId,
+        'quantity': quantity,
       },
       headers: {
-        "X-Parse-Session-Token": token,
+        'X-Parse-Session-Token': token,
       },
     );
 
@@ -80,26 +81,26 @@ class CartRepository {
 
   Future<CartResult<String>> addItemToCart({
     required String userId,
-    required int quantity,
-    required String productId,
     required String token,
+    required String productId,
+    required int quantity,
   }) async {
     final result = await _httpManager.restRequest(
-      url: EndPoints.addItemToCart,
-      method: HttpMethods.post,
-      body: {
-        "user": userId,
-        "quantity": quantity,
-        "productId": productId,
-      },
-      headers: {
-        "X-Parse-Session-Token": token,
-      },
-    );
-    if (result["result"] != null) {
-      return CartResult<String>.success(result["result"]["id"]);
+        url: EndPoints.addItemToCart,
+        method: HttpMethods.post,
+        body: {
+          'user': userId,
+          'quantity': quantity,
+          'productId': productId,
+        },
+        headers: {
+          'X-Parse-Session-Token': token,
+        });
+
+    if (result['result'] != null) {
+      return CartResult<String>.success(result['result']['id']);
     } else {
-      return CartResult.error("Não foi possível adicionar item ao carrinho");
+      return CartResult.error('Não foi possível adicionar o item no carrinho');
     }
   }
 }
