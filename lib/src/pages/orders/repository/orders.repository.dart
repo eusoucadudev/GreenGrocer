@@ -31,7 +31,7 @@ class OrdersRepository {
       return OrdersResult<List<CartItemModel>>.success(items);
     } else {
       return OrdersResult.error(
-        "Não foi possível recuperar os produtos do pedido",
+        "Não foi possível recuperar os produtos do pedido.",
       );
     }
   }
@@ -58,7 +58,7 @@ class OrdersRepository {
 
       return OrdersResult<List<OrderModel>>.success(order);
     } else {
-      return OrdersResult.error("Não foi possível recuperar os pedidos");
+      return OrdersResult.error("Não foi possível recuperar os pedidos.");
     }
   }
 }
