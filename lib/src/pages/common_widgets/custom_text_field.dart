@@ -57,22 +57,24 @@ class _CustomTextFieldState extends State<CustomTextField> {
         onSaved: widget.onSaved,
         keyboardType: widget.textInputType,
         decoration: InputDecoration(
-            prefixIcon: Icon(widget.icon),
-            suffixIcon: widget.isSecret
-                ? IconButton(
-                    icon: Icon(
-                        isObscure ? Icons.visibility : Icons.visibility_off),
-                    onPressed: () {
-                      setState(() {
-                        isObscure = !isObscure;
-                      });
-                    },
-                  )
-                : null,
-            labelText: widget.label,
-            isDense: true,
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(18))),
+          prefixIcon: Icon(widget.icon),
+          suffixIcon: widget.isSecret
+              ? IconButton(
+                  icon:
+                      Icon(isObscure ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () {
+                    setState(() {
+                      isObscure = !isObscure;
+                    });
+                  },
+                )
+              : null,
+          labelText: widget.label,
+          isDense: true,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18),
+          ),
+        ),
       ),
     );
   }
