@@ -11,8 +11,8 @@ Branch "master" to access the code.
 To run the project, you will need:
 
   - Flutter installed 
-  - Clone the project "https://github.com/eusoucadudev/GreenGrocer.git"
-  - Run flutter pub get 
+  - Clone the project  "https://github.com/eusoucadudev/GreenGrocer.git"
+  - Run "Flutter pub get" 
   - "Flutter run" to run the project.
 
 
