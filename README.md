@@ -1,6 +1,8 @@
 # :technologist: GreenGrocer
 Aplicativo de quitanda virtual completo desenvolvido em Flutter.
 
+Acesse a branch "master" para ter acesso ao código.
+
 
 
 Splash Screen 
