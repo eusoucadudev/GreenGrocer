@@ -1,4 +1,4 @@
-# GreenGrocer
+# :technologist: GreenGrocer
 Aplicativo de quitanda virtual completo desenvolvido em Flutter.
 
 
