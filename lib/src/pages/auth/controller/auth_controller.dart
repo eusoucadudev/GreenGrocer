@@ -89,7 +89,10 @@ class AuthController extends GetxController {
 
   void saveTokenAndProceedToBase() {
     // Salvar o token
-    utilsServices.saveLocalData(key: StorageKeys.token, data: user.token!);
+    utilsServices.saveLocalData(
+      key: StorageKeys.token,
+      data: user.token!,
+    );
 
     // Ir para a base
     Get.offAllNamed(PagesRoutes.baseRoute);
