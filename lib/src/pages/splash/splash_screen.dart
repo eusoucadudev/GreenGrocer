@@ -20,9 +20,9 @@ class SplashScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: Column(
+        child: const Column(
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             AppNameWidget(
               greenTitleColor: Colors.white,
               textSize: 40,
